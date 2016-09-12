@@ -19,9 +19,6 @@
     "default_popup": "popup.html"
   },
   "permissions": [
-    "https://*/*",
-    "http://*/*",
-    "activeTab",
-    "tabs"
+    "https://calendar.google.com/*"
   ]
 }
