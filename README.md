@@ -7,6 +7,6 @@ This extension hides those No, Maybe and Not-Yet-Responded-To events when viewin
 
 To install:
 - Download this repo as a zip file and expand it
-- Go to [chrome://extensions](chrome://extensions)
+- Go to `chrome://extensions`
 - Check "Developer mode"
 - Click "Load unpacked extensions" and find the folder
