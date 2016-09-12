@@ -1,0 +1,33 @@
+body {
+  width: 200px;
+}
+
+button {
+  appearance: none;
+  background-color: #0071bc;
+  border-radius: 2px;
+  color: #fff;
+  border: none;
+  margin-bottom: 2px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  transition: background-color .2s ease-out;
+}
+
+button:hover,
+button:focus {
+  background-color: #205493;
+  cursor: pointer;
+}
+
+button[data-action="show"] {
+  background-color: #aeb0b5;
+  color: #323a45;
+}
+
+.label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
