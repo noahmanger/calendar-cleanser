@@ -4,7 +4,7 @@
   "name": "Calendar Cleanser",
   "description": "An extension for cleaning up calendar clutter",
   "author": "Noah Manger",
-  "version": "1.0",
+  "version": "0.1.0",
   "background": {
     "scripts": ["background.js"],
     "persistent": false
