@@ -1,7 +1,5 @@
 'use strict';
 
-var calEvents = document.querySelectorAll('.tg-col dl');
-
 function checkChildren(calEvent, type) {
   var check;
 
@@ -12,14 +10,16 @@ function checkChildren(calEvent, type) {
   } else if (type === 'noRSVP') {
     check = calEvent.querySelector('[title="Not yet responded"]');
   }
-  console.log(check);
+
   return check;
 }
 
 function toggleEvents(action, type) {
+  var calEvents = document.querySelectorAll('.tg-col dl');
+  
   [].forEach.call(calEvents, function(calEvent) {
     var check = checkChildren(calEvent, type);
-    console.log(check);
+
     if (check) {
       var opacity = action === 'hide' ? 0 : 1;
       calEvent.style.opacity = opacity;
