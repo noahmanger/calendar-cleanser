@@ -1,6 +1,8 @@
 var scriptAdded;
 
 function toggleExtension(tab) {
+  if (typeof tab.url === 'undefined') { return false; }
+
   if (tab.url.includes('calendar.google.com')) {
     chrome.pageAction.show(tab.id);
     chrome.tabs.executeScript(tab.id, {
