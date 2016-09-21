@@ -16,20 +16,20 @@ function checkChildren(calEvent, type) {
 
 function toggleEvents(action, type) {
   var calEvents = document.querySelectorAll('.tg-col dl');
-  
+
   [].forEach.call(calEvents, function(calEvent) {
     var check = checkChildren(calEvent, type);
 
-    if (check) {
-      var opacity = action === 'hide' ? 0 : 1;
-      calEvent.style.opacity = opacity;
+    if (check && action === 'hide') {
+      calEvent.classList.add('calendar-cleanser--hidden');
+    } else if (check && action === 'show') {
+      calEvent.classList.remove('calendar-cleanser--hidden');
     }
   });
 }
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-    console.log(request);
     toggleEvents(request.action, request.rsvpType);
   }
 );

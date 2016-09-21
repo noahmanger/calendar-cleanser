@@ -1,21 +1,29 @@
+var scriptAdded;
+
 function toggleExtension(tab) {
   if (tab.url.includes('calendar.google.com')) {
     chrome.pageAction.show(tab.id);
-    console.log(tab.id);
-    chrome.tabs.executeScript(null, {
+    chrome.tabs.executeScript(tab.id, {
       file: 'content.js'
-    })
+    });
+    chrome.tabs.insertCSS(tab.id, {
+      file: 'content.css'
+    });
+    scriptAdded = true;
   } else {
     chrome.pageAction.hide(tab.id);
   }
 }
 
 chrome.tabs.onActivated.addListener(function(activeInfo) {
-  chrome.tabs.get(activeInfo.tabId, toggleExtension)
+  // Only add the script if it hasn't been
+  if (!scriptAdded) {
+    chrome.tabs.get(activeInfo.tabId, toggleExtension);
+  }
 });
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-  if (changeInfo.status == 'complete') {
-    chrome.tabs.get(tabId, toggleExtension)
+  if (changeInfo.status === 'complete') {
+    chrome.tabs.get(tabId, toggleExtension);
   }
-})
+});

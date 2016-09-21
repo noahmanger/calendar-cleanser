@@ -1,0 +1,7 @@
+.tg-col dl {
+  transition: opacity .2s ease-out;
+}
+
+.calendar-cleanser--hidden {
+  opacity: 0;
+}
